@@ -2,9 +2,11 @@
 > Still work in progress
 
 a script that print pokemon sprite to terminal. Purely aesthetic. This is a spin written in C for better compatability and raw performance.
-This program will only be tested on debian linux so compatability on other systems relies on contribution.
+This program will only be tested on debian linux so compatability on other systems relies on contribution. Please feel free to raise an issue as you see fit.
 
 # Basic build instruciton
+
+This will compile the code into a single binary that you can use.
 
 ```bash
 git clone https://github.com/MingFei2001/pokecli.git --depth=1 # save some time
