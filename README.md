@@ -16,7 +16,7 @@ make
 ```
 
 # TODO
-- [ ] make it random by default
+- [x] make it random by default
 - [ ] add a manpage
 - [ ] make sure it can be installed as package
 - [ ] make a deb package
