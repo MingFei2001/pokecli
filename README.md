@@ -14,9 +14,10 @@ make
 ```
 
 # TODO
-- [ ] add a manpage
 - [ ] make it random by default
-- [ ] make sure it can be installed as a system binary or in PATH
+- [ ] add a manpage
+- [ ] make sure it can be installed as package
+- [ ] make a deb package
 - [ ] update this readme page
 
 # Contribution
