@@ -6,7 +6,7 @@
 #define MAX_PATH 256       // set max buffer size for path
 
 void print_ascii(const char *filename) {
-  FILE *fp = fopen(filename, "r");
+  FILE *fp = fopen(filename, "r"); // save file path as variable
   if (!fp) {
     printf("could not open %s\n", filename);
     return;
@@ -18,9 +18,18 @@ void print_ascii(const char *filename) {
     printf("%s", line);
   };
   printf("\033[0m\n"); // reset color
+  fclose(fp);
 }
 
-int main() {
-  printf("hello");
+int main(int argc, char *argv[]) {
+  if (argc < 2){
+    printf("Usage: %s <pokemon-name>", argv[0]);
+    return 1;
+  }
+
+  char filepath[MAX_PATH];
+  snprintf(filepath, sizeof(filepath), "%s%s.txt", ASCII_DIR, argv[1]);
+
+  print_ascii(filepath);
   return 0;
 };
