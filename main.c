@@ -1,6 +1,9 @@
+#include <dirent.h>
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #define ASCII_DIR "ascii/" // set ascii art directory
 #define MAX_PATH 256       // set max buffer size for path
@@ -21,14 +24,54 @@ void print_ascii(const char *filename) {
   fclose(fp);
 }
 
-int main(int argc, char *argv[]) {
-  if (argc < 2){
-    printf("Usage: %s <pokemon-name>", argv[0]);
-    return 1;
+char *get_random_ascii_file(char *buffer, size_t size) {
+  struct dirent *entry;
+  DIR *dir = opendir(ASCII_DIR);
+  if (!dir) {
+    perror("failed to open ascii directory.");
+    return NULL;
   }
 
+  char *files[256];
+  int count = 0;
+
+  while ((entry = readdir(dir)) != NULL) {
+    if (strstr(entry->d_name, ".txt")) {
+      files[count] = strdup(entry->d_name);
+      count++;
+      if (count >= 256)
+        break;
+    }
+  }
+  closedir(dir);
+
+  if (count == 0)
+    return NULL;
+
+  srand(time(NULL));
+  int idx = rand() % count;
+  snprintf(buffer, size, "%s%s", ASCII_DIR, files[idx]);
+
+  // Free memory of other filenames
+  for (int i = 0; i < count; i++) {
+    if (i != idx)
+      free(files[i]);
+  }
+
+  return buffer;
+}
+
+int main(int argc, char *argv[]) {
   char filepath[MAX_PATH];
-  snprintf(filepath, sizeof(filepath), "%s%s.txt", ASCII_DIR, argv[1]);
+
+  if (argc < 2) {
+    if (!get_random_ascii_file(filepath, sizeof(filepath))) {
+      printf("No ascii files found in %s\n", ASCII_DIR);
+      return 1;
+    }
+  } else {
+    snprintf(filepath, sizeof(filepath), "%s%s.txt", ASCII_DIR, argv[1]);
+  }
 
   print_ascii(filepath);
   return 0;
