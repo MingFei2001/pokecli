@@ -1,35 +1,49 @@
 # pokecli
-> Still work in progress
 
-a script that print pokemon sprite to terminal. Purely aesthetic. This is a spin written in C for better compatability and raw performance.
-This program will only be tested on debian linux so compatability on other systems relies on contribution. Please feel free to raise an issue as you see fit.
+> 🖼️ Show a random Pokémon ASCII art in your terminal, blazingly fast.
 
-# Basic build instruciton
+**Pokecli** is a tiny C program that prints a random Pokémon sprite every time you run it. Perfect for ricing, dotfiles, or just adding a bit of fun to your shell. *No dependencies, just pure speed.*
 
-This will compile the code into a single binary that you can use.
+- 🟢 Random Pokémon ASCII art on every run
+- ⚡️ Super fast, written in C
+- 🎨 Great for screenshots and showing off your setup
+- 🐧 Made for Linux (Debian), but easy to adapt
+
+## Installation
+
+Clone, build, and run:
 
 ```bash
-git clone https://github.com/MingFei2001/pokecli.git --depth=1 # save some time
+git clone https://github.com/MingFei2001/pokecli.git --depth=1
 cd pokecli
 make
 ./pokecli
 ```
 
-# TODO
-- [x] make it random by default
-- [ ] add a manpage
-- [ ] make sure it can be installed as package
-- [ ] make a deb package
-- [ ] update this readme page
+## Usage
 
-# Contribution
+- Run `./pokecli` for a random Pokémon.
+- Run `./pokecli pikachu` to summon a specific one (currently only the first 151 is available 😓)
+- Drop it in your `.bashrc`, `.zshrc`, or your favorite rice script for instant joy.
 
-Contribution is welcomed as i am fairly new to programming space. Please let me know if there is any issue or improvement i can make on this program.
+## TODO
 
-# Reference
+- [x] Random Pokémon by default
+- [ ] Add a manpage
+- [ ] Package for easy install
+- [ ] Make a .deb package
+- [x] Polish this README
+
+## Contributing
+
+I love ricing and I'm still learning C, so contributions, suggestions, and issues are super welcome! If you want to see pokecli on your distro or have ideas for new features, open an issue or PR.
+
+## Credits
+
 - [acxz/pokescript](https://github.com/acxz/pokescript)
 - [phoneybadger/pokemon-colorscripts](https://gitlab.com/phoneybadger/pokemon-colorscripts)
 - [dwt1/shell-color-scripts](https://gitlab.com/dwt1/shell-color-scripts)
 
-# LICENSE
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+## License
+
+MIT – see [LICENSE](./LICENSE) for details.
