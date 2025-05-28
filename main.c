@@ -34,6 +34,7 @@ void print_ascii(const char *filename) {
   fclose(fp);
 }
 
+// randomly select a file to output
 char *get_random_ascii_file(char *buffer, size_t size) {
   struct dirent *entry;
   DIR *dir = opendir(ASCII_DIR);
