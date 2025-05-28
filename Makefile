@@ -1,5 +1,5 @@
 CC = gcc
-CFLASG = -Wall -O2
+CFLAGS = -Wall -O2
 TARGET = pokecli
 
 all: $(TARGET)
