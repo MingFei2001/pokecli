@@ -18,6 +18,7 @@
 #define ASCII_DIR "ascii/" // set ascii art directory
 #define MAX_PATH 256       // set max buffer size for path
 
+// read the ascii file and print them line by line
 void print_ascii(const char *filename) {
   FILE *fp = fopen(filename, "r"); // save file path as variable
   if (!fp) {
@@ -43,14 +44,14 @@ char *get_random_ascii_file(char *buffer, size_t size) {
     return NULL;
   }
 
-  char *files[256];
+  char *files[1024];
   int count = 0;
 
   while ((entry = readdir(dir)) != NULL) {
     if (strstr(entry->d_name, ".txt")) {
       files[count] = strdup(entry->d_name);
       count++;
-      if (count >= 256)
+      if (count >= 1024)
         break;
     }
   }
