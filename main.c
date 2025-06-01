@@ -26,12 +26,10 @@ void print_ascii(const char *filename) {
     return;
   }
 
-  printf("\033[1;32m"); // set green color
   char line[1024];
   while (fgets(line, sizeof(line), fp)) {
     printf("%s", line);
   };
-  printf("\033[0m\n"); // reset color
   fclose(fp);
 }
 
